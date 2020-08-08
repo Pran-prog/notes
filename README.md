@@ -1,2 +1,2 @@
 # notes
-how to to make notes and save it
+help to to make notes and save it
