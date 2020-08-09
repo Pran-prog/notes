@@ -8,8 +8,8 @@ addBtn.addEventListener('click', function (e) {
     let addTxt = document.getElementById('addTxt');   
 
 
-    if (addTxt.value == '') {
-        let alerti = alert('Write a note');
+    if (addTxt.value|addTitle.value == '') {
+        empty();
     }
     else {
         let notes = localStorage.getItem('notes');
@@ -149,55 +149,20 @@ search.addEventListener('input', function () {
 
 })
 
-// failed day idea
 
-/*
+function empty() {
 
+    let emptyHandT = `
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Heyyyy!</strong> you forgot to type either Title or Note.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times</span>
+      </button>
+    </div>
+    
+    `
 
-function date() {
-
-    let noteDate = new Date();
-
-    let currentDay = noteDate.getDay();
-
-    let allDay = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
-
-    let day = allDay[currentDay];
-
-    // let beforeClass = document.getElementsByClassName("card-text");
-
-    // let parentClass = document.getElementById('card-body');
-
-    var popUpDiv = $("#notes");
-
-    var panelDiv = $("<div>rere</div>").addClass("side_panel");
-
-    popUpDiv.append(panelDiv);
-
-    // let divDate = document.createElement('div');
-
-    // divDate.className = "elem";
-    // divDate.id = 'elem';
-
-    // divDate.innerText = 'hello';
-
-    // parentClass.insertBefore(divDate, beforeClass);
-
-
-    // let divDate = document.getElementsByClassName('day');
-
-    // divDate.innerText = 'ff';
-
-
-
-    // console.log(day);
+    let Empty = document.getElementById('emptyy');
+    Empty.innerHTML = emptyHandT;
 
 }
-
-
-Panel = function () {
-var popUpDiv = $("#firewall-content");
-var panelDiv = $("<div></div>").addClass("side_panel");
-popUpDiv.append(panelDiv);
-
-*/
