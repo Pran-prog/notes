@@ -24,14 +24,27 @@ addBtn.addEventListener('click', function (e) {
         }
 
         let addTitle = document.getElementById('addTitle');
+        
+        //         adding a date
+        
+        let noteDate = new Date();
+
+        let currentDay = noteDate.getDay();
+
+        let allDay = ['Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+
+        let day = allDay[currentDay];
 
         myobj = {
             txt : addTxt.value ,
             title : addTitle.value
+            dayy: day
         };
 
         notesObj.push(myobj);
         localStorage.setItem('notes', JSON.stringify(notesObj));
+        
+
 
         addTxt.value = '';
         addTitle.value = '';
@@ -69,6 +82,7 @@ function showNotes() {
             
             <div class="noteCard my-2 mx-2 card" style="width: 18rem;" id="day">
                     <div class="card-body">
+                        <div class="days" id="day" align="right"  style="color: darkgrey; float: right;"> ${element.dayy} </div>
                         <h5 class="card-title">${element.title}</h5>
                         <p class="card-text"> ${element.txt}</p>
                         <button id = "${index}" onclick = "deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
